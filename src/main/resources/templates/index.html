@@ -12,10 +12,10 @@
 			<h1>Tasks</h1>
 			<p class="lead">A very simple task management tool</p>
 		</div>
-		<p class="alert alert-success" role="alert" th:if="${sucess != null}" th:text="${sucess}" id="message" />
+		<p class="alert alert-success" role="alert" th:if="${success != null}" th:text="${success}" id="message" />
 		<div th:switch="${todos.size()}">
-    		<h2 th:case="0">No tasks... enjoy your day!</h2>
-        	<div th:case="*">
+			<h2 th:case="0">No tasks... enjoy your day!</h2>
+			<div th:case="*">
 				<table id="todoTable" class="table table-hover">
 					<thead class="thead-dark">
 						<tr>
@@ -28,7 +28,8 @@
 						<tr th:each="todo : ${todos}">
 							<td th:text="${todo.task}"></td>
 							<td th:text="${todo.dueDate}"></td>
-							<td><a class="btn btn-outline-danger btn-sm" th:href="@{/delete/{id}(id=${todo.id})}">Remove</a>
+							<td><a class="btn btn-outline-danger btn-sm"
+									th:href="@{/delete/{id}(id=${todo.id})}">Remove</a>
 							</td>
 						</tr>
 					</tbody>
